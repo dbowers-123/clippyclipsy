@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TikTok login - ClippyClipsy</title><style>
+ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;max-width:720px;margin:40px auto;padding:0 20px;line-height:1.6;color:#1b1b1b}
+ h1{font-size:1.8rem;margin-bottom:.2rem} h2{font-size:1.15rem;margin-top:2rem}
+ nav a{margin-right:16px} .muted{color:#666;font-size:.9rem}
+ code{background:#f2f2f2;padding:2px 6px;border-radius:4px;word-break:break-all}
+ @media (prefers-color-scheme:dark){body{background:#151515;color:#eee}.muted{color:#aaa}code{background:#2a2a2a}a{color:#7ab7ff}}
+</style></head><body>
+<nav><a href="index.html">Home</a><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a></nav><hr>
+
+<h1>TikTok login</h1>
+<p id="msg">Reading the response from TikTok...</p>
+<p><code id="code"></code></p>
+<p class="muted">This page runs entirely in your browser and sends nothing anywhere. If it shows a code, copy it
+into the ClippyClipsy tool on your computer and then close this tab.</p>
+<script>
+ const p = new URLSearchParams(location.search);
+ const msg = document.getElementById('msg'), out = document.getElementById('code');
+ if (p.get('code')) { msg.textContent = 'Success. Copy this code into the tool:'; out.textContent = p.get('code'); }
+ else if (p.get('error')) { msg.textContent = 'TikTok returned an error: ' + (p.get('error_description') || p.get('error')); }
+ else { msg.textContent = 'No login response found in this address. Start the login from the tool instead.'; }
+</script>
+
+</body></html>
